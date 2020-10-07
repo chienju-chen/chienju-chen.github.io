@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>IS445_Assignment4_Chen,Chien-Ju</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+  </head>
+  <body>
+      <p>
+      Here's a vega-lite visualization of the building inventory dataset.
+      </p>
+      <p>
+      This is a bar chart displaying the <strong>Total Million Square Footage</strong>
+      in each <strong>Congressional District</strong>.
+      </p>
+      <div id="viz">
+      </div>
+      <script>
+        var vlSpec = 
+            {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "data": {"url": "../data/building_inventory.csv", 
+                         "format": {"type":"csv", "parse": {"Congress Dist": "number"}}},
+                "mark": "bar",
+                "transform": [{"calculate": "datum['Square Footage']/1000000", 
+                               "as": "Million Square Footage"}],
+                "encoding": {"x": {"field": "Congress Dist", "type": "ordinal", "title": "Congressional District"}, 
+                             "y": {"field": "Million Square Footage", "aggregate": "sum", 
+                                   "type": "quantitative", "title": "Total Square Footage (in Million)"}}
+            };
+        vegaEmbed('#viz', vlSpec);
+      </script>
+    </body>
+ </html>
