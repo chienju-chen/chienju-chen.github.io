@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "data": {"url": "../data/building_inventory.csv", "format": {"type":"csv", "parse": {"Congress Dist": "number"}}},
+    "data": {"url": "data/building_inventory.csv", "format": {"type":"csv", "parse": {"Congress Dist": "number"}}},
     "mark": "bar",
     "transform": [{"calculate": "datum['Square Footage']/1000000", "as": "Million Square Footage"}],
     "encoding": {
