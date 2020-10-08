@@ -25,7 +25,8 @@
                 "mark": "bar",
                 "transform": [{"calculate": "datum['Square Footage']/1000000", 
                                "as": "Million Square Footage"}],
-                "encoding": {"x": {"field": "Congress Dist", "type": "ordinal", "title": "Congressional District"}, 
+                "encoding": {"x": {"field": "Congress Dist", "type": "ordinal", 
+                                   "title": "Congressional District", "axis": {"labelAngle": 0}}, 
                              "y": {"field": "Million Square Footage", "aggregate": "sum", 
                                    "type": "quantitative", "title": "Total Square Footage (in Million)"}}
             };
